@@ -24,10 +24,26 @@ const Index = () => {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background relative overflow-hidden">
+        {/* Background particles */}
+        <div className="fixed inset-0 pointer-events-none">
+          {Array.from({ length: 20 }, (_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-primary/20 rounded-full animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${2 + Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
+
         <Header />
         
-        <main className="pt-20">
+        <main className="pt-20 relative z-10">
           <AnimatePresence mode="wait">
             {!gameStarted ? (
               <motion.div
@@ -51,7 +67,7 @@ const Index = () => {
                   y: 0, 
                   scale: 1,
                   transition: { 
-                    duration: 0.6, 
+                    duration: 0.8, 
                     ease: "easeOut",
                     delay: 0.2
                   }
