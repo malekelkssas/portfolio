@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
@@ -27,16 +28,47 @@ const Index = () => {
         <Header />
         
         <main className="pt-20">
-          {!gameStarted ? (
-            <HeroSection onStartGame={handleStartGame} />
-          ) : (
-            <GameMap onQuestSelect={handleQuestSelect} />
-          )}
+          <AnimatePresence mode="wait">
+            {!gameStarted ? (
+              <motion.div
+                key="hero"
+                initial={{ opacity: 1, scale: 1 }}
+                exit={{ 
+                  opacity: 0, 
+                  scale: 0.8,
+                  transition: { duration: 0.5, ease: "easeInOut" }
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <HeroSection onStartGame={handleStartGame} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="gameMap"
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: { 
+                    duration: 0.6, 
+                    ease: "easeOut",
+                    delay: 0.2
+                  }
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <GameMap onQuestSelect={handleQuestSelect} />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </main>
 
-        {selectedQuest && (
-          <QuestModal questId={selectedQuest} onClose={handleCloseModal} />
-        )}
+        <AnimatePresence>
+          {selectedQuest && (
+            <QuestModal questId={selectedQuest} onClose={handleCloseModal} />
+          )}
+        </AnimatePresence>
       </div>
     </ThemeProvider>
   );

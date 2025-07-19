@@ -1,16 +1,20 @@
-import { ArrowDown, Shield, Star, Trophy } from "lucide-react";
+import { ArrowDown, Star, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = ({ onStartGame }: { onStartGame: () => void }) => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 sm:pt-20">
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted opacity-50"></div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <div className="flex justify-center mb-8">
           <div className="relative">
-            <div className="w-32 h-32 bg-gradient-to-br from-primary to-game-primary-glow rounded-full flex items-center justify-center glow-pulse">
-              <Shield className="w-16 h-16 text-white" />
+            <div className="w-32 h-32 bg-gradient-to-br from-primary to-game-primary-glow rounded-full flex items-center justify-center glow-pulse overflow-hidden">
+              <img 
+                src="/my-pic.jpg" 
+                alt="Malek" 
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
             <div className="absolute -top-2 -right-2 w-8 h-8 bg-game-warning rounded-full flex items-center justify-center">
               <Star className="w-4 h-4 text-white" />
@@ -19,7 +23,7 @@ export const HeroSection = ({ onStartGame }: { onStartGame: () => void }) => {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 slide-up">
-          <span className="text-gradient">Player One</span>
+          <span className="text-gradient">Malek's Portfolio Quest</span>
           <br />
           <span className="text-foreground">Ready?</span>
         </h1>

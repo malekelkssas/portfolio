@@ -137,6 +137,79 @@
 
   body {
     @apply bg-background text-foreground;
+    transition: 
+      background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Enhanced theme transitions */
+  html {
+    transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth transitions for all elements with better timing */
+  *, *::before, *::after {
+    transition: 
+      background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Specific enhanced transitions for key elements */
+  .bg-background,
+  .bg-card,
+  .bg-popover,
+  .bg-muted,
+  .bg-secondary,
+  .bg-accent {
+    transition: 
+      background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .text-foreground,
+  .text-muted-foreground,
+  .text-card-foreground,
+  .text-popover-foreground,
+  .text-primary,
+  .text-secondary,
+  .text-accent {
+    transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .border-border,
+  .border-primary,
+  .border-secondary,
+  .border-accent {
+    transition: 
+      border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Special transitions for interactive elements */
+  button,
+  input,
+  textarea,
+  select {
+    transition: 
+      background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth transitions for gradients and shadows */
+  .game-card,
+  .game-button,
+  .text-gradient {
+    transition: 
+      background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
